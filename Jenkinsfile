@@ -27,6 +27,7 @@ pipeline {
       steps {
         container('kaniko') {
           script {
+            sh 'ls /home/jenkins/agent/workspace/kube-build/initial/target/'
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
