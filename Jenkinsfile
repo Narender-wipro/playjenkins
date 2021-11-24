@@ -16,6 +16,7 @@ pipeline {
       steps {
       git 'https://github.com/spring-guides/gs-maven.git'
       container('maven') {
+          sh 'cd initial'
           sh 'mvn package'
    
       }
