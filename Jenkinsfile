@@ -27,6 +27,7 @@ pipeline {
       steps {
         container('kaniko') {
           script {
+            sh 'chmod -R 666 ./intial/target/'
             sh 'ls -lart ./initial/target/'
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
