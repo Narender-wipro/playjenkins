@@ -11,6 +11,16 @@ pipeline {
   }
 
   stages {
+    
+    stage('Get a Maven project') {
+      git 'https://github.com/spring-guides/gs-maven.git'
+      container('maven') {
+        stage('Build a Maven project') {
+          sh 'mvn package'
+   
+        }
+      }
+    }
 
     stage('Kaniko Build & Push Image') {
       steps {
