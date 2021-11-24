@@ -19,23 +19,23 @@ pipeline {
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=justmeandopensource/myweb:${BUILD_NUMBER}
+                             --destination=cnap-harbor.release-final.pks-wipro.com/kube-demo/web:${BUILD_NUMBER}
             '''
           }
         }
       }
     }
 
-    stage('Deploy App to Kubernetes') {     
-      steps {
-        container('kubectl') {
-          withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
-            sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
-            sh 'kubectl apply -f myweb.yaml'
-          }
-        }
-      }
-    }
+//     stage('Deploy App to Kubernetes') {     
+//       steps {
+//         container('kubectl') {
+//           withCredentials([file(credentialsId: 'mykubeconfig', variable: 'KUBECONFIG')]) {
+//             sh 'sed -i "s/<TAG>/${BUILD_NUMBER}/" myweb.yaml'
+//             sh 'kubectl apply -f myweb.yaml'
+//           }
+//         }
+//       }
+//     }
   
   }
 }
