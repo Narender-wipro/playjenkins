@@ -4,6 +4,12 @@ metadata:
   name: kaniko
 spec:
   containers:
+  - name: maven
+    image: maven:3.8.1-jdk-8
+    command:
+    - sleep
+    args:
+    - 99d
   - name: kubectl
     image: joshendriks/alpine-k8s
     command:
