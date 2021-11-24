@@ -16,9 +16,9 @@ pipeline {
       steps {
       container('maven') {
           sh 'ls -l'
-          sh 'cd initial'
+          // sh 'cd initial'
           sh 'ls -l'
-          sh 'mvn package'
+          sh 'mvn package -f initial/pom.xml'
       }
     }
    }
