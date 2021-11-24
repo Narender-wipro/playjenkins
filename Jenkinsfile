@@ -30,7 +30,7 @@ pipeline {
             sh 'ls ./initial/target/'
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
-                             --context `/home/jenkins/agent/workspace/kube-build/initial/target` \
+                             --context `/home/jenkins/agent/workspace/kube-build/initial/target/` \
                              --destination=cnap-harbor.release-final.pks-wipro.com/kube-demo/web:${BUILD_NUMBER}
             '''
           }
