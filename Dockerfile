@@ -1,2 +1,4 @@
-FROM httpd:2.4
-COPY ./index.html /usr/local/apache2/htdocs/
+FROM java:8
+WORKDIR /
+ADD /home/jenkins/agent/workspace/kube-build/initial/target/gs-maven-0.1.0-shaded.jar gs-maven-0.1.0-shaded.jar
+CMD java - jar gs-maven-0.1.0-shaded.jar
