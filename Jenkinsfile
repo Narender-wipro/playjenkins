@@ -19,7 +19,7 @@ pipeline {
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
-                             --destination=cnap-harbor.release-final.pks-wipro.com/kube-demo/web:${BUILD_NUMBER}
+                             --destination=kube-demo/web:${BUILD_NUMBER}
             '''
           }
         }
