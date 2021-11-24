@@ -27,10 +27,10 @@ pipeline {
       steps {
         container('kaniko') {
           script {
-            sh 'pwd'
+            sh 'ls ./initial/target/'
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
-                             --context `pwd` \
+                             --context `/home/jenkins/agent/workspace/kube-build/initial/target` \
                              --destination=cnap-harbor.release-final.pks-wipro.com/kube-demo/web:${BUILD_NUMBER}
             '''
           }
