@@ -17,6 +17,7 @@ pipeline {
       container('maven') {
           sh 'ls -l'
           sh 'cd initial'
+          sh 'ls -l'
           sh 'mvn package'
       }
     }
