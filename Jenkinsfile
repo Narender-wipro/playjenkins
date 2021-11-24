@@ -27,10 +27,10 @@ pipeline {
       steps {
         container('kaniko') {
           script {
-            sh 'ls ./initial/target/'
+            sh 'ls -lart ./initial/target/'
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
-                             --context `pwd`/initial/target/ \
+                             --context `pwd` \
                              --destination=cnap-harbor.release-final.pks-wipro.com/kube-demo/web:${BUILD_NUMBER}
             '''
           }
