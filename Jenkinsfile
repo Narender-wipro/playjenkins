@@ -14,13 +14,10 @@ pipeline {
     
     stage('Get a Maven project') {
       steps {
-      git 'https://github.com/spring-guides/gs-maven.git'
       container('maven') {
           sh 'ls -l'
-          sh 'pwd'
-//           sh 'cd initial'
+          sh 'cd initial'
           sh 'mvn package'
-   
       }
     }
    }
