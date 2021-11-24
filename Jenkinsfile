@@ -15,9 +15,9 @@ pipeline {
     stage('Get a Maven project') {
       steps {
       container('maven') {
-          sh 'ls -l'
+          // sh 'ls -l'
           // sh 'cd initial'
-          sh 'ls -l'
+          // sh 'ls -l'
           sh 'mvn package -f initial/pom.xml'
       }
     }
@@ -27,7 +27,7 @@ pipeline {
       steps {
         container('kaniko') {
           script {
-            sh 'ls /home/jenkins/agent/workspace/kube-build/initial/target/'
+            sh 'pwd'
             sh '''
             /kaniko/executor --dockerfile `pwd`/Dockerfile \
                              --context `pwd` \
